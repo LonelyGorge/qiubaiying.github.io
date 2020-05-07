@@ -1,13 +1,12 @@
 ---
 layout:     post
 title:      Hello World
-subtitle:   World
 date:       2020-05-07
 author:     lceCr4m
 header-img: img/helloworld.jpg
 catalog: true
 tags:
-    - my
+    - Hello World
 ---
 
 ## 我想说的话
