@@ -135,7 +135,7 @@ self.addEventListener('fetch', event => {
     event.respondWith(
       Promise.race([fetched.catch(_ => cached), cached])
         .then(resp => resp || fetched)
-        .catch(_ => caches.match('404.html'))
+        .catch(_ => caches.match('offline.html'))
     );
 
     // Update the cache with the version we fetched (only for ok status)
