@@ -1,10 +1,9 @@
 # Site settings
 title: lceCre4m
-SEOTitle: lceCre4m | Blog
+SEOTitle: lceCre4m
 header-img: img/home.jpg
 email: 2272925696@qq.com
 description: "Thanks For Coming!"
-keyword: "BY, BY Blog, 柏荧的博客, qiubaiying, 邱柏荧, iOS, Apple, iPhone"
 url: "https://lcecre4m.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/lceCre4m/lcecre4m.github.io.git" # you code repository
@@ -12,13 +11,13 @@ github_repo: "https://github.com/lceCre4m/lcecre4m.github.io.git" # you code rep
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "Thanks For Coming!"
-sidebar-avatar: /img/20181002174844_wkcby (1).jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/touxiang.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
 # SNS settings
 RSS: false
-# weibo_username:     qiubaiying
+# weibo_username:     lcecre4m
 
 
 
