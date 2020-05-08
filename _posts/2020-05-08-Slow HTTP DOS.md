@@ -3,7 +3,7 @@ layout:     post
 title:      Slow HTTP DOS
 date:       2020-05-08
 author:     lceCr4m
-header-img: img/helloworld.jpg
+header-img: img/http.png
 catalog: true
 tags:
     - HTTP
@@ -39,6 +39,9 @@ Accept: *.*\r\n
 如果我们使用更多的程序发送这样的报文，那么服务器端会给客户端留出更多的资源来处理、等待这迟迟不传完的报文。假设服务器端的客户端最大连接数是100个，我们使用测试程序先连接上100次服务器端，并且报文中启用Keep-Alive，那么其他正常用户101等就无法正常访问网站了。
 
 ## 0x02 利用slowhttptest实施Slow HTTP DOS  
+使用slowhttptest进行测试：(https://github.com/shekyan/slowhttptest)
+
+
 
 ## 0x03修复方案  
 
