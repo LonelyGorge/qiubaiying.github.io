@@ -99,14 +99,16 @@ Tomcat 在 server.xml 中修改超时时间即可
 
 ### Weblogic
 1.在配置管理界面中的协议->一般信息下设置 完成消息超时时间小于400  
-![weblogic1](https://github.com/lceCre4m/lceCre4m.github.io/blob/master/img/weblogic1.jpg)
+![weblogic1](https://github.com/lceCre4m/lceCre4m.github.io/blob/master/img/weblogic1.jpg?raw=true)
 
 2.在配置管理界面中的协议->HTTP下设置 POST 超时、持续时间、最大 POST 大小为安全值范围。  
-![weblogic2](https://github.com/lceCre4m/lceCre4m.github.io/blob/master/img/weblogic2.jpg)
+![weblogic2](https://github.com/lceCre4m/lceCre4m.github.io/blob/master/img/weblogic2.jpg?raw=true)
 
-## 参考
-https://payloads.online/archivers/2018-04-16/2
-https://www.cnblogs.com/v1vvwv/p/slowHTTPtest-attack-and-defense.html
+## 0x04参考
+https://payloads.online/archivers/2018-04-16/2  
+https://www.cnblogs.com/v1vvwv/p/slowHTTPtest-attack-and-defense.html  
+
+
 
 
 
