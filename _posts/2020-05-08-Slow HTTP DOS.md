@@ -74,6 +74,31 @@ slowhttptest是一个可配置的应用层拒绝服务攻击测试攻击，它�
 ```
 
 ## 0x03修复方案  
+1.设置合适的 timeout 时间（Apache 已默认启用了 reqtimeout 模块），规定了 Header 发送的时间以及频率和 Body 发送的时间以及频率。  
+
+2.增大 MaxClients(MaxRequestWorkers)：增加最大的连接数。根据官方文档，两个参数是一回事，版本不同，MaxRequestWorkers was called MaxClients before version 2.3.13. The old name is still supported。  
+
+3.默认安装的 Apache 存在 Slow Attack 的威胁，原因就是虽然设置的 timeoute，但是最大连接数不够，如果攻击的请求频率足够大，仍然会占满 Apache 的所有连接。  
+
+### Apache
+1.mod_reqtimeout模块，默认启动。设置 header 和 body 的发送时间及频率。  
+在 httpd.conf 里面，添加上如下： 
+```
+mod_reqtimeout.so
+<IfModule reqtimeout_module>
+    RequestReadTimeout header=20-40,minrate=500RequestReadTimeout body=10,minrate=500
+</IfModule>
+```
+2.mod_qos：开源模块，需额外安装。  
+
+3.mod_security：开源模块，需额外安装。
+
+### Tomcat
+Tomcat 在 server.xml 中修改超时时间即可  
+
+### Weblogic
+1.在配置管理界面中的协议->一般信息下设置 完成消息超时时间小于400
+2.在配置管理界面中的协议->HTTP下设置 POST 超时、持续时间、最大 POST 大小为安全值范围。
 
 ## 参考
 
