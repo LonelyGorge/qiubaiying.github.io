@@ -6,7 +6,6 @@ author:     lceCr4m
 header-img: img/http.png
 catalog: true
 tags:
-    - HTTP
     - Slow HTTP DOS
 ---
 
