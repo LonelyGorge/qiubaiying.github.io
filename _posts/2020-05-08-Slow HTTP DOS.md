@@ -39,9 +39,39 @@ Accept: *.*\r\n
 如果我们使用更多的程序发送这样的报文，那么服务器端会给客户端留出更多的资源来处理、等待这迟迟不传完的报文。假设服务器端的客户端最大连接数是100个，我们使用测试程序先连接上100次服务器端，并且报文中启用Keep-Alive，那么其他正常用户101等就无法正常访问网站了。
 
 ## 0x02 利用slowhttptest实施Slow HTTP DOS  
-使用slowhttptest进行测试：(https://github.com/shekyan/slowhttptest)
+使用slowhttptest进行测试：https://github.com/shekyan/slowhttptest  
 
+slowhttptest是一个可配置的应用层拒绝服务攻击测试攻击，它可以工作在Linux，OSX和Cygwin环境以及Windows命令行接口，可以帮助安全测试人员检验服务器对慢速攻击的处理能力。  
 
+这个工具可以模拟低带宽耗费下的DoS攻击，比如慢速攻击，慢速HTTP POST，通过并发连接池进行的慢速读攻击（基于TCP持久时间）等。慢速攻击基于HTTP协议，通过精心的设计和构造，这种特殊的请求包会造成服务器延时，而当服务器负载能力消耗过大即会导致拒绝服务。  
+
+常用：SlowLoris模式，Slow POST模式，Range Header模式，Slow Read模式  
+
+参数：  
+```
+ -g      在测试完成后，以时间戳为名生成一个CVS和HTML文件的统计数据
+ -H      SlowLoris模式
+ -B      Slow POST模式
+ -R      Range Header模式
+ -X      Slow Read模式
+ -c      number of connections 测试时建立的连接数
+ -d      HTTP proxy host:port  为所有连接指定代理
+ -e      HTTP proxy host:port  为探测连接指定代理
+ -i      seconds 在slowrois和Slow POST模式中，指定发送数据间的间隔。
+ -l      seconds 测试维持时间
+ -n      seconds 在Slow Read模式下，指定每次操作的时间间隔。
+ -o      file name 使用-g参数时，可以使用此参数指定输出文件名
+ -p      seconds 指定等待时间来确认DoS攻击已经成功
+ -r      connections per second 每秒连接个数
+ -s      bytes 声明Content-Length header的值
+ -t      HTTP verb 在请求时使用什么操作，默认GET
+ -u      URL  指定目标url
+ -v      level 日志等级（详细度）
+ -w      bytes slow read模式中指定tcp窗口范围下限
+ -x      bytes 在slowloris and Slow POST tests模式中，指定发送的最大数据长度
+ -y      bytes slow read模式中指定tcp窗口范围上限
+ -z      bytes 在每次的read()中，从buffer中读取数据量
+```
 
 ## 0x03修复方案  
 
