@@ -7,6 +7,7 @@ header-img: img/helloworld.jpg
 catalog: true
 tags:
     - HTTP
+    - Slow HTTP DOS
 ---
 
 ## 0x00 Slow HTTP DOS介绍
@@ -29,6 +30,10 @@ Content_Type: application/x-www-form-urlencoded\r\n
 Accept: *.*\r\n
 \r\n
 ```
+其中的\r\n代表一行报文的结束也被称为空行（CRLF），\r\n\r\n代表整个报文的结束  
+由于http协议是无状态协议，如果为非KeepAlive模式时，每个请求/应答客户和服务器都要新建一个连接，完成之后立即断开连接；当使用KeepAlive模式时，避免了建立或者重新建立连接。  
+如果我们构造报文，使得报文不以\r\n\r\n结尾（意味着报文未结束），每隔10秒发一行报文，那么上述报文需要80秒，服务器需要一直等待客户端报文的结束，然后才能解析这个报文，服务器资源就被占用了。  
+如果我们使用更多的程序发送这样的报文，那么服务器端会给客户端留出更多的资源来处理、等待这迟迟不传完的报文。假设服务器端的客户端最大连接数是100个，我们使用测试程序先连接上100次服务器端，并且报文中启用Keep-Alive，那么其他正常用户101、102就无法正常访问网站了。
 
 ## 0x02 利用slowhttptest实施Slow HTTP DOS  
 
